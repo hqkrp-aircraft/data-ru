@@ -1,0 +1,19 @@
+name: CI-data-ru
+on:
+  push:
+    branches: [ master ]
+  schedule:
+    - cron: '6/5 * * * *'
+jobs:
+  cd:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Quick data-ru cd
+      run: .  ./make-data-ru
+  main:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Quick data-ru main
+      run: source    ./make-data-ru
